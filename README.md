@@ -1,3 +1,6 @@
+## Project Structure
+
+```
 .
 ├── environments
 │   ├── dev
@@ -31,3 +34,4 @@
         ├── main.tf
         ├── outputs.tf
         └── variables.tf
+```
