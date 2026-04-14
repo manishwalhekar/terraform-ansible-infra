@@ -22,11 +22,11 @@ resource "aws_subnet" "dev_subnet" {
   availability_zone = var.dev_az
 
   tags = {
-    Name = "dev"
+    Name = "dev-subnet"
     Environment = "dev"
   }
 }
-  resource "aws_subnet" "stg_subnet" {
+resource "aws_subnet" "stg_subnet" {
   vpc_id     = aws_vpc.vpc.id
   cidr_block = var.stg_subnet_cidr
   map_public_ip_on_launch = true
@@ -34,18 +34,18 @@ resource "aws_subnet" "dev_subnet" {
   availability_zone = var.stg_az
 
   tags = {
-    Name = "stg"
+    Name = "stg-subnet"
     Environment = "stg"
   }
   }
-  resource "aws_subnet" "prd_subnet" {
+resource "aws_subnet" "prd_subnet" {
   vpc_id     = aws_vpc.vpc.id
   cidr_block = var.prd_subnet_cidr
   map_public_ip_on_launch = true
   availability_zone = var.prd_az
 
   tags = {
-    Name = "prd"
+    Name = "prd-subnet"
     Environment = "prd"
   }
 }
