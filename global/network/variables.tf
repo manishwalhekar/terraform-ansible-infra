@@ -42,4 +42,15 @@ variable "prd_az" {
 
 }
 
+variable "project" {
+  description = "Project name"
+  type        = string
+}
+
+variable "env" {
+  description = "Environment label for global resources"
+  type        = string
+}
+
+
 

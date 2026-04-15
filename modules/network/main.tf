@@ -1,8 +1,12 @@
 resource "aws_vpc" "vpc"{
     cidr_block = var.vpc_cidr
+    enable_dns_support   = true
+    enable_dns_hostnames = true
 
     tags = {
-      Name = "main-vpc"
+      Name = "${var.project}-${var.env}-vpc"
+      Environment = var.env
+      Project = var.project
     }
 }
 
@@ -10,7 +14,9 @@ resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.vpc.id
 
   tags = {
-    Name = "main-igw"
+    Name = "${var.project}-${var.env}-igw"
+    Environment = var.env
+    Project = var.project
   }
 
 }
@@ -22,8 +28,8 @@ resource "aws_subnet" "dev_subnet" {
   availability_zone = var.dev_az
 
   tags = {
-    Name = "dev-subnet"
-    Environment = "dev"
+    Name = "${var.project}-dev-subnet"
+    Environment = var.env
   }
 }
 resource "aws_subnet" "stg_subnet" {
@@ -33,9 +39,9 @@ resource "aws_subnet" "stg_subnet" {
 
   availability_zone = var.stg_az
 
-  tags = {
-    Name = "stg-subnet"
-    Environment = "stg"
+   tags = {
+    Name = "${var.project}-stg-subnet"
+    Environment = var.env
   }
   }
 resource "aws_subnet" "prd_subnet" {
@@ -44,9 +50,9 @@ resource "aws_subnet" "prd_subnet" {
   map_public_ip_on_launch = true
   availability_zone = var.prd_az
 
-  tags = {
-    Name = "prd-subnet"
-    Environment = "prd"
+   tags = {
+    Name = "${var.project}-prd-subnet"
+    Environment = var.env
   }
 }
 
@@ -58,8 +64,9 @@ resource "aws_route_table" "rt" {
     gateway_id = aws_internet_gateway.igw.id
   }
 
-  tags = {
-    Name = "main-route-table"
+   tags = {
+    Name = "${var.project}-public-route-table"
+    Environment = var.env
   }
 }
 

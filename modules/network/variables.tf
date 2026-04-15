@@ -41,3 +41,15 @@ variable "prd_az" {
     type = string
   
 }
+
+variable "env" {
+
+    type = string
+    description = "this will be the environment name"
+  
+}
+
+variable "project" {
+    type = string
+    description = "this is project name"
+}
