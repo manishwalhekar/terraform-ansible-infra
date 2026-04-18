@@ -30,6 +30,17 @@ variable "pub_key_path" {
   
 }
 
+variable "subnet_id" {
+    type = string
+    description = "this is subnet id"
+  
+}
+variable "security_group_id" {
+    type = string
+    description = "this is sg id"
+  
+}
+
 variable "project" {
   description = "Project name"
   type        = string
