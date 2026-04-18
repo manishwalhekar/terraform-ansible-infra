@@ -27,7 +27,7 @@ module "compute" {
   instance_count = var.instance_count
   instance_type  = var.instance_type
 
-  subnet_id = data.terraform_remote_state.network.outputs.dev_subnet_id
+  subnet_id = data.terraform_remote_state.network.outputs.prd_subnet_id
   security_group_id = module.security.sg_id
 
   key_name     = var.key_name
