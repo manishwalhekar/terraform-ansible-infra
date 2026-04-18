@@ -122,7 +122,7 @@ State is stored in S3 with DynamoDB locking. Each layer has its own key:
 - The network layer must exist before any environment can be provisioned.
 
 ## tree
-
+```text
 .
 ├── environments
 │   ├── dev
@@ -161,3 +161,4 @@ State is stored in S3 with DynamoDB locking. Each layer has its own key:
         ├── main.tf
         ├── outputs.tf
         └── variables.tf
+```
