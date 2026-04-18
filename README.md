@@ -122,8 +122,11 @@ State is stored in S3 with DynamoDB locking. Each layer has its own key:
 - The network layer must exist before any environment can be provisioned.
 
 ## tree
+## Project Structure
+
 ```text
 .
+├── README.md
 ├── environments
 │   ├── dev
 │   │   ├── backend.tf
@@ -143,6 +146,15 @@ State is stored in S3 with DynamoDB locking. Each layer has its own key:
 │       ├── backend.tf
 │       ├── main.tf
 │       ├── providers.tf
+│       ├── terraform.tfvars
+│       └── variables.tf
+│
+├── global
+│   └── network
+│       ├── backend.tf
+│       ├── main.tf
+│       ├── outputs.tf
+│       ├── provider.tf
 │       ├── terraform.tfvars
 │       └── variables.tf
 │
