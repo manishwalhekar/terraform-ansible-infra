@@ -4,7 +4,7 @@ Terraform project for multi-environment AWS infrastructure — `dev`, `stg`, and
 
 ---
 
-## Project Structure
+## Project Structure (overview) ##complete tree structure is given at bottom
 
 ```
 .
@@ -113,6 +113,40 @@ State is stored in S3 with DynamoDB locking. Each layer has its own key:
 > **Keys in repo:** `keys/terra-infra-key` is a private key — remove it from git and add `keys/` to `.gitignore`. Store private keys in `~/.ssh/` or AWS SSM Parameter Store.
 
 > **SSH open to world:** All environments allow SSH from `0.0.0.0/0`. Restrict to your IP/VPN range in `stg` and `prd`.
+
+##tree
+├── environments
+│   ├── dev
+│   │   ├── backend.tf
+│   │   ├── main.tf
+│   │   ├── providers.tf
+│   │   ├── terraform.tfvars
+│   │   └── variables.tf
+│   ├── prd
+│   │   ├── backend.tf
+│   │   ├── main.tf
+│   │   ├── providers.tf
+│   │   ├── terraform.tfvars
+│   │   └── variables.tf
+│   └── stg
+│       ├── backend.tf
+│       ├── main.tf
+│       ├── providers.tf
+│       ├── terraform.tfvars
+│       └── variables.tf
+└── modules
+    ├── compute
+    │   ├── main.tf
+    │   ├── outputs.tf
+    │   └── variables.tf
+    ├── network
+    │   ├── main.tf
+    │   ├── outputs.tf
+    │   └── variables.tf
+    └── security
+        ├── main.tf
+        ├── outputs.tf
+        └── variables.tf
 
 ---
 
